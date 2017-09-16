@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue2.min.js"></script>
+		<script src="vue-router2.js"></script>
+		
+		<style type="text/css">
+			.first{background: pink;width: 300px;height: 100px;}
+			.router-link-active{color: #ff6600;}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		  <h1>Vue路由Demo</h1>
+		  <p>
+		    <router-link to="/yzc">西施</router-link>
+		    <router-link to="/ycj">貂蝉</router-link>
+		    <router-link to="/dd">昭君</router-link>
+		    <router-link to="/hp">杨贵妃</router-link>
+		  </p>
+		  <router-view></router-view>
+		  <div>这里是路由映射区</div>
+		</div>
+		
+		<script>
+			const Yzc = { template: '<div class="first">这是一美</div>' }
+			const Ycj = { template: '<div>这是二美</div>' }
+			const Dd = { template: '<div>这是三美</div>' }
+			const Hp = { template: '<div>这是四美</div>' }
+			const routes = [
+			  { path: '/yzc', component: Yzc },
+			  { path: '/ycj', component: Ycj },
+			  { path: '/dd', component: Dd },
+			  { path: '/hp', component: Hp}
+			]
+			const router = new VueRouter({
+			  routes
+			})
+			const app = new Vue({
+			  router
+			}).$mount('#app')
+		</script>
+	</body>
+</html>
